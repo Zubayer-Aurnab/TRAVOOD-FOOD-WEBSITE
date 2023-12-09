@@ -11,7 +11,6 @@ const Private = ({ children }) => {
     if (loading) {
         return <div className="flex justify-center mt-32">
             <RotatingLines
-
                 strokeColor="grey"
                 strokeWidth="5"
                 animationDuration="0.75"
