@@ -23,7 +23,7 @@ const AllFood = () => {
 
     useEffect(() => {
         axios
-            .get(`https://hungry-explorer-server.vercel.app/api/v1/all-foods?page=${currentPage}&size=${itemsPerPage}`)
+            .get(`http://localhost:5000/api/v1/all-foods?page=${currentPage}&size=${itemsPerPage}`)
             .then((res) => {
                 setAllFoods(res.data.result);
                 setTotalFoods(res.data.total)
@@ -35,7 +35,7 @@ const AllFood = () => {
         const from = e.target
         const text = from.search.value
 
-        axios.get(`https://hungry-explorer-server.vercel.app/api/v1/all-foods?strMeal=${text}`)
+        axios.get(`http://localhost:5000/api/v1/all-foods?strMeal=${text}`)
             .then(res => {
                 setAllFoods(res.data.result)
                 setTotalFoods(res.data.total)

@@ -55,7 +55,7 @@ const Update = () => {
             confirmButtonText: "Yes, Update it!"
         }).then((result) => {
            
-            axios.put(`https://hungry-explorer-server.vercel.app/api/v1/update/${_id}`,update)
+            axios.put(`http://localhost:5000/api/v1/update/${_id}`,update)
                 .then(res => {
                     if(res.data.modifiedCount > 0){
                         Swal.fire({

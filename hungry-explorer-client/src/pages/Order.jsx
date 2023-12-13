@@ -68,7 +68,7 @@ const Order = () => {
             buyer
         }
         console.log(order)
-        axios.post(`https://hungry-explorer-server.vercel.app/api/v1/orders`, order)
+        axios.post(`http://localhost:5000/api/v1/orders`, order)
             .then(res => {
                 console.log(res.data)
                 if (res.data.acknowledged) {

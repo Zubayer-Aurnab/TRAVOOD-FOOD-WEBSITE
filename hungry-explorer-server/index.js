@@ -12,7 +12,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://hungry-explorer.web.app",
-      'https://hungry-explorer.firebaseapp.com'
+      "https://hungry-explorer.firebaseapp.com",
     ],
     credentials: true,
   })
@@ -33,10 +33,9 @@ const verifyToken = (req, res, next) => {
     if (err) {
       return res.status(401).send({ message: "unauthorized" });
     }
-    req.user = decoded
+    req.user = decoded;
     next();
   });
- 
 };
 
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
@@ -115,11 +114,11 @@ async function run() {
     });
     // get my added foods by email address
     app.get("/api/v1/find", logger, verifyToken, async (req, res) => {
-      const  email  = req.query.email;
+      const email = req.query.email;
       // console.log(email);
-      console.log('my token owner info',req.user)
-      if(req.user.email !== req.query.email){
-        return res.status(403).send({message:'forbidden access'})
+      console.log("my token owner info", req.user);
+      if (req.user.email !== req.query.email) {
+        return res.status(403).send({ message: "forbidden access" });
       }
       const result = await AllFoodCollections.find({ email: email }).toArray();
       res.send(result);
@@ -164,17 +163,23 @@ async function run() {
       const result = await OrderCollection.insertOne(order);
       res.send(result);
     });
+
     //get data by email
     app.get("/api/v1/orders", logger, verifyToken, async (req, res) => {
-      
-      const  email  = req.query.email;
+      const email = req.query.email;
       // console.log(email);
-      console.log('my token owner info',req.user)
-      if(req.user.email !== req.query.email){
-        return res.status(403).send({message:'forbidden access'})
+      console.log("my token owner info", req.user);
+      if (req.user.email !== req.query.email) {
+        return res.status(403).send({ message: "forbidden access" });
       }
       // console.log(email);
       const result = await OrderCollection.find({ buyer: email }).toArray(); // Assuming 'buyerEmail' is the field in your database
+      res.send(result);
+    });
+
+    app.delete("/api/v1/delete-card", async (req, res) => {
+      const email = req.query.email;
+      const result = await OrderCollection.deleteMany({ buyer: email });
       res.send(result);
     });
     // delete data by id

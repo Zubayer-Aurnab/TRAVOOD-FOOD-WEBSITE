@@ -16,7 +16,7 @@ const MyFood = () => {
     const [myData, setMyData] = useState([])
     // console.log(myData)
     useEffect(() => {
-        axios.get(`https://hungry-explorer-server.vercel.app/api/v1/find?email=${user?.email}`,{withCredentials:true})
+        axios.get(`http://localhost:5000/api/v1/find?email=${user?.email}`,{withCredentials:true})
             .then(res => {
                 setMyData(res.data)
             })
@@ -35,7 +35,7 @@ const MyFood = () => {
             if (result.isConfirmed) {
 
                 console.log(id)
-                axios.delete(`https://hungry-explorer-server.vercel.app/api/v1/find/${id}`)
+                axios.delete(`http://localhost:5000/api/v1/find/${id}`)
                     .then(res => {
                         if (res.data.deletedCount) {
                             Swal.fire({

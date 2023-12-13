@@ -59,7 +59,7 @@ const Register = () => {
                     .then(() => {
                         const user = { email, name, photo }
 
-                        axios.post(`https://hungry-explorer-server.vercel.app/api/v1/register`, user)
+                        axios.post(`http://localhost:5000/api/v1/register`, user)
                             .then(res => {
                                 if (res.data.acknowledged) {
                                     Swal.fire({

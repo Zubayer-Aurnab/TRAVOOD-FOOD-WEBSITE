@@ -21,6 +21,7 @@ import AddProduct from './pages/AddProduct';
 import MyFood from './pages/MyFood';
 import Update from './pages/Update';
 import Private from './Hooks/Private';
+import Payment from './pages/Payment/Payment';
 
 
 const router = createBrowserRouter([
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
       {
         path: '/single/:id',
         element: <SingleFood />,
-        loader: ({ params }) => fetch(`https://hungry-explorer-server.vercel.app/api/v1/all-foods/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/api/v1/all-foods/${params.id}`)
       },
       {
         path: '/login',
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
       {
         path: '/order/:id',
         element: <Private><Order /></Private>,
-        loader: ({ params }) => fetch(`https://hungry-explorer-server.vercel.app/api/v1/all-foods/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/api/v1/all-foods/${params.id}`)
       },
       {
         path: '/cart',
@@ -80,9 +81,13 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <Update />,
-        loader: ({ params }) => fetch(`https://hungry-explorer-server.vercel.app/api/v1/all-foods/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/api/v1/all-foods/${params.id}`)
       }
-
+      ,
+      {
+        path: '/payment',
+        element: <Payment />
+      }
     ]
   },
 ]);
