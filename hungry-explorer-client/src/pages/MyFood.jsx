@@ -16,7 +16,7 @@ const MyFood = () => {
     const [myData, setMyData] = useState([])
     // console.log(myData)
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/v1/find?email=${user?.email}`,{withCredentials:true})
+        axios.get(`http://localhost:5000/api/v1/find?email=${user?.email}`, { withCredentials: true })
             .then(res => {
                 setMyData(res.data)
             })
@@ -50,6 +50,13 @@ const MyFood = () => {
             }
         });
     }
+
+
+
+
+
+
+
     return (
         <div className="p-4  lg:w-4/5 mx-auto h-auto">
             <div>
@@ -59,8 +66,10 @@ const MyFood = () => {
             </div>
             <div className='mt-32 mb-10'>
                 <Title>MY ADDED FOODS</Title>
+            
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10 mt-10 lg:mt-20">
+
                 {
                     myData?.map(items => <div key={items._id}>
 

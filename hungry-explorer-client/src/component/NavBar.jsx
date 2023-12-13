@@ -7,6 +7,8 @@ import { BsCart4 } from 'react-icons/bs';
 import { MdFastfood } from 'react-icons/md';
 import { BsFillPersonCheckFill } from 'react-icons/bs';
 import { MdAdd } from 'react-icons/md';
+import { IoIosStats } from "react-icons/io";
+
 
 const NavBar = () => {
     const { user, logOutUser } = useContext(AuthContext)
@@ -139,6 +141,11 @@ const NavBar = () => {
                             <div>
                                 <Link to={'/my-food'}>
                                     <button className="btn btn-sm  w-full ">My added foods <BsFillPersonCheckFill className="text-xl ml-2 mb-1" />  </button>
+                                </Link>
+                            </div>
+                            <div>
+                                <Link to={'/stat'}>
+                                    <button className="btn btn-sm  w-full ">Stat <IoIosStats  className="text-xl ml-2 mb-1" />  </button>
                                 </Link>
                             </div>
 

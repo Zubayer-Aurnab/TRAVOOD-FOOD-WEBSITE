@@ -22,6 +22,7 @@ import MyFood from './pages/MyFood';
 import Update from './pages/Update';
 import Private from './Hooks/Private';
 import Payment from './pages/Payment/Payment';
+import Stat from './pages/Stat';
 
 
 const router = createBrowserRouter([
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
       {
         path: '/payment',
         element: <Payment />
+      },
+      {
+        path: "/stat",
+        element: <Stat />
       }
     ]
   },
