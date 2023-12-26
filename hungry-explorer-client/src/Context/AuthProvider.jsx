@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         signOut(auth)
             .then(() => {
-                axios.post('http://localhost:5000/api/v1/logout', loggedUser, { withCredentials: true })
+                axios.post('https://hungry-explorer-server.vercel.app/api/v1/logout', loggedUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data)
                     })
@@ -79,7 +79,7 @@ const AuthProvider = ({ children }) => {
                 const userEmail = storedUser?.email || user.email;
                 const loggedUser = { email: userEmail }
                 console.log(loggedUser)
-                axios.post('http://localhost:5000/api/v1/jwt', loggedUser, { withCredentials: true })
+                axios.post('https://hungry-explorer-server.vercel.app/api/v1/jwt', loggedUser, { withCredentials: true })
                     .then(res => {
                         console.log('token responce', res.data)
                     })

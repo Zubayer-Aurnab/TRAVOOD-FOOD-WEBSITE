@@ -18,14 +18,14 @@ const Cart = () => {
     console.log(data)
     const { user, loading } = useContext(AuthContext)
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/v1/orders?email=${user?.email}`, { withCredentials: true })
+        axios.get(`https://hungry-explorer-server.vercel.app/api/v1/orders?email=${user?.email}`, { withCredentials: true })
             .then(res => {
                 setData(res.data)
             })
     }, [user])
 
     const handelDelete = (id) => {
-        axios.delete(`http://localhost:5000/api/v1/orders/${id}`)
+        axios.delete(`https://hungry-explorer-server.vercel.app/api/v1/orders/${id}`)
             .then(res => {
                 console.log(res.data)
                 const remaining = data.filter(data => data._id !== id)

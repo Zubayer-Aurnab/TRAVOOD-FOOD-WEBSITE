@@ -31,7 +31,7 @@ const AddProduct = () => {
             quantity : quantity
         }
         console.log(add)
-        axios.post(`http://localhost:5000/api/v1/all-foods`,add)
+        axios.post(`https://hungry-explorer-server.vercel.app/api/v1/all-foods`,add)
         .then(res=>{
             console.log(res.data)
             if(res.data.acknowledged){

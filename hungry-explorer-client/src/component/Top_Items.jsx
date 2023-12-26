@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Top_Items = () => {
     const [items, setItems] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:5000/api/v1/all-foods')
+        axios.get('https://hungry-explorer-server.vercel.app/api/v1/all-foods')
             .then(res => {
                 console.log(res.data.resut)
                 setItems(res.data.result)

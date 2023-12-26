@@ -11,13 +11,13 @@ const Stat = () => {
     const [myFood, setMyFood] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/v1/find?email=${user?.email}`, { withCredentials: true })
+        axios.get(`https://hungry-explorer-server.vercel.app/api/v1/find?email=${user?.email}`, { withCredentials: true })
             .then(res => {
                 setMyFood(res.data)
             })
     }, [user])
     useEffect(() => {
-        axios.get('http://localhost:5000/api/v1/all-foods')
+        axios.get('https://hungry-explorer-server.vercel.app/api/v1/all-foods')
             .then(res => {
                 setTotalFood(res.data.total)
             })
@@ -50,7 +50,7 @@ const Stat = () => {
     };
 
     return (
-        <div className="w-4/5 mx-auto ">
+        <div className="w-4/5 mx-auto h-screen ">
             <div className="mt-10">
                 <Title>Statistic</Title>
             </div>

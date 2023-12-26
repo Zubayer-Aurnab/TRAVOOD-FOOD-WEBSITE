@@ -42,7 +42,7 @@ const CheckoutForm = () => {
             // console.log('[PaymentMethod]', paymentMethod);
 
 
-            axios.delete(`http://localhost:5000/api/v1/delete-card?email=${user?.email}`)
+            axios.delete(`https://hungry-explorer-server.vercel.app/api/v1/delete-card?email=${user?.email}`)
                 .then(res => {
                     if (res.data.deletedCount) {
                         Swal.fire({

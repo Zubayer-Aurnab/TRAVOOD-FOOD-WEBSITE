@@ -36,7 +36,7 @@ const NavBar = () => {
                 Home
             </NavLink>
         </li>
-       
+
         <li>
             <NavLink
                 to="/blog"
@@ -106,19 +106,14 @@ const NavBar = () => {
             <div className="navbar-end ">
 
                 {
-                    user?.email ? <div className="dropdown dropdown-end">
-                        <label
-                            onClick={() => setIsOpen(isOpen => !isOpen)}
-                            tabIndex={1} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img src={user.photoURL} alt="" />
-                            </div>
-                        </label>
+                    user?.email ? <div className="dropdown dropdown-hover dropdown-bottom dropdown-end">
 
-                        <motion.ul
-                            animate={isOpen ? "open" : "closed"}
-                            variants={variantsV1}
-                            tabIndex={1} className=" space-y-2 menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 ">
+                        <img
+                            tabIndex={0}
+                            src={user?.photoURL}
+                            className="w-14 h-14 rounded-full object-cover"
+                            alt="" />
+                        <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 space-y-2 ">
                             <li>
                                 <button className="btn btn-sm bg-white hover:bg-white  btn-ghost w-full">{user.displayName}</button>
 
@@ -145,7 +140,7 @@ const NavBar = () => {
                             </div>
                             <div>
                                 <Link to={'/stat'}>
-                                    <button className="btn btn-sm  w-full ">Stat <IoIosStats  className="text-xl ml-2 mb-1" />  </button>
+                                    <button className="btn btn-sm  w-full ">Stat <IoIosStats className="text-xl ml-2 mb-1" />  </button>
                                 </Link>
                             </div>
 
@@ -156,15 +151,17 @@ const NavBar = () => {
                                     className="btn btn-sm  bg-red-400 text-white hover:bg-red-400 hover:text-white w-full">Logout</button>
 
                             </li>
-                        </motion.ul>
+
+                        </ul>
                     </div>
+
                         :
                         <Link to={'/login'}>
                             <button className=" btn btn-sm bg-yellow-400 md:btn-md  lg:btn-md  bg-yellow-400  hover:bg-yellow-300 font-black lg:text-xl " >Log In</button>
                         </Link>
                 }
             </div>
-        </div>
+        </div >
     );
 };
 
