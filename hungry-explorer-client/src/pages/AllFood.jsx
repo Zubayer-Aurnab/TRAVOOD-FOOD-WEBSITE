@@ -29,6 +29,7 @@ const AllFood = () => {
                 setTotalFoods(res.data.total)
 
             });
+        window.scrollTo(0, 0)
     }, [currentPage, itemsPerPage]);
     const handelSearch = (e) => {
         e.preventDefault()
